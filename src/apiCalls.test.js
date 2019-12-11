@@ -42,3 +42,50 @@ describe('getReservations', () => {
   })
 
 })
+
+describe('postReservation', () => {
+  let mockNewRes =
+  { name: 'Eric',
+    date: '04/22',
+    time: '8:45 pm',
+    number: 3 };
+  let mockReturnedNewReservation =
+    { id: 2222222,
+      name: 'Eric',
+      date: '04/22',
+      time: '8:45 pm',
+      number: 3 };
+  let mockOptions = {
+    method: "POST",
+    body: JSON.stringify(mockNewRes),
+    headers: { "Content-Type": "application/json" },
+  }
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockReturnedNewReservation)
+      });
+    });
+  });
+
+  it('should call fetch with the correct URL', () => {
+    postReservation(mockOptions);
+    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/reservations', mockOptions);
+  })
+
+  it('should return the posted new reservation', () => {
+    expect(postReservation()).resolves.toEqual(mockReturnedNewReservation);
+  })
+
+  it('should return an error if fetch fails', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+      });
+    });
+    expect(postReservation()).rejects.toEqual(Error('Something went wrong'));
+  })
+
+})
