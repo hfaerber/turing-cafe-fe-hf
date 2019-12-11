@@ -14,10 +14,21 @@ describe('Form', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('should update state when handleChange is called', () => {
+  it('should update state when handleChange is invoked', () => {
     const mockEvent = { target:{ name: 'name', value: 'Robbie' }}
     wrapper.instance().handleChange(mockEvent);
     expect(wrapper.state('name')).toEqual('Robbie')
+  })
+
+  it('should update state when clearInputs is invoked', () => {
+    const expected = {
+      name: '',
+      date: '',
+      time: '',
+      number: '',
+    };
+    wrapper.instance().clearInputs();
+    expect(wrapper.state()).toEqual(expected)
   })
 
   it('should invoke handleClick when clicked', () => {
