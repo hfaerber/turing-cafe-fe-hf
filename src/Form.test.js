@@ -38,23 +38,24 @@ describe('Form', () => {
     expect(wrapper.instance().handleClick).toHaveBeenCalledWith(mockEvent)
   })
 
-  it('should invoke addRes prop method when handleClick is invoked', () => {
+  it('should invoke clearInputs and addRes prop when handleClick is invoked',
+    () => {
     const mockState = {
       name: 'Robbie',
       date: '04/11',
       time: '7:45 pm',
-      number: 2
-    }
+      number: 2 }
     const mockEvent = { preventDefault: jest.fn() };
     const mockNewRes = {
       name: 'Robbie',
       date: '04/11',
       time: '7:45 pm',
-      number: 2
-    };
+      number: 2 };
+    wrapper.instance().clearInputs = jest.fn()
     wrapper.instance().setState(mockState);
     wrapper.instance().handleClick(mockEvent);
     expect(mockAddRes).toHaveBeenCalledWith(mockNewRes);
+    expect(wrapper.instance().clearInputs).toHaveBeenCalled();
   })
 
 })
