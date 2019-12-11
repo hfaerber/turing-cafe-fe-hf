@@ -16,6 +16,15 @@ class Form extends Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
+  clearInputs = () => {
+    this.setState({
+      name: '',
+      date: '',
+      time: '',
+      number: '',
+    })
+  }
+
   handleClick = (event) => {
     event.preventDefault();
     const newRes = {
@@ -24,6 +33,7 @@ class Form extends Component {
       time: this.state.time,
       number: Number(this.state.number),
     };
+    this.clearInputs();
     this.props.addRes(newRes);
   }
 
