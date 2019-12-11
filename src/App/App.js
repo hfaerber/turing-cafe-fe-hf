@@ -33,6 +33,20 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  deleteRes = (id) => {
+    const options = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }
+
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, options)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ reservations: data })
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,6 +58,7 @@ class App extends Component {
         </div>
           <ResBox
             reservations={this.state.reservations}
+            deleteRes={this.deleteRes}
           />
       </div>
     )

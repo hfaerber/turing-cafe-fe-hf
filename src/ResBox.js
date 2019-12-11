@@ -2,7 +2,7 @@ import React from 'react';
 import './ResBox.css'
 import ResCard from './ResCard'
 
-const ResBox = ({ reservations }) => {
+const ResBox = ({ reservations, deleteRes }) => {
   let cards = reservations.map(reservation => {
     return (<ResCard
       key={reservation.id}
@@ -11,6 +11,7 @@ const ResBox = ({ reservations }) => {
       date={reservation.date}
       time={reservation.time}
       number={reservation.number}
+      deleteRes={deleteRes}
     />)
   })
 
@@ -20,6 +21,3 @@ const ResBox = ({ reservations }) => {
 }
 
 export default ResBox
-
-
-// { id: 18907224, name: 'Christie', date: '8/8', time: '7:00', number: 3 }

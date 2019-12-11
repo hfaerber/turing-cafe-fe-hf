@@ -55,5 +55,3 @@ class Form extends Component {
 }
 
 export default Form;
-// {name: <String>, date: <String>, time: <String>, number: <Number>}
-// New reservation: { id: 18939837, name: 'Leta', date: '12/3', time: '6:30', number: 2 }
