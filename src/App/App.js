@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ResBox from '../ResBox'
 import Form from '../Form'
-import {getReservations} from '../apiCalls.js'
+import {getReservations, postReservation, deleteReservation} from '../apiCalls.js'
 
 class App extends Component {
   constructor() {
@@ -25,8 +25,7 @@ class App extends Component {
       headers: { "Content-Type": "application/json" },
     }
 
-    fetch('http://localhost:3001/api/v1/reservations', options)
-      .then(res => res.json())
+    postReservation(options)
       .then(data => {
         this.setState({ reservations: [...this.state.reservations, data ] })
       })
@@ -39,8 +38,7 @@ class App extends Component {
       headers: { "Content-Type": "application/json" },
     }
 
-    fetch(`http://localhost:3001/api/v1/reservations/${id}`, options)
-      .then(res => res.json())
+    deleteReservation(id, options)
       .then(data => {
         this.setState({ reservations: data })
       })
