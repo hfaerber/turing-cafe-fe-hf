@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ResBox from '../ResBox'
 import Form from '../Form'
+import {getReservations} from '../apiCalls.js'
 
 class App extends Component {
   constructor() {
@@ -12,8 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/reservations')
-      .then(res => res.json())
+    getReservations()
       .then(data => this.setState({ reservations: data }))
       .catch(error => console.log(error))
   }
