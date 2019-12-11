@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResBox should match snapshot with all data passed through correctly 1`] = `
+<div
+  className="resy-container"
+>
+  <ResCard
+    date="04/11"
+    deleteRes={[MockFunction]}
+    id={11}
+    key="11"
+    name="Robbie"
+    number={2}
+    time="7:45 pm"
+  />
+</div>
+`;

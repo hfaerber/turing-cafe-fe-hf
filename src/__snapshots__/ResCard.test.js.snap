@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResCard should match snapshot with all data passed through correctly 1`] = `
+<section
+  className="cards"
+>
+  <h2>
+    Robbie
+  </h2>
+  <p>
+    04/11
+  </p>
+  <p>
+    7:45 pm
+  </p>
+  <p>
+    Number of guests: 
+    2
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
+</section>
+`;
