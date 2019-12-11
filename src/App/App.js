@@ -28,7 +28,7 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/reservations', options)
       .then(res => res.json())
       .then(data => {
-        this.setState({ reservation: [...this.state.reservations, data ] })
+        this.setState({ reservations: [...this.state.reservations, data ] })
       })
       .catch(err => console.log(err))
   }
@@ -42,11 +42,9 @@ class App extends Component {
             addRes={this.addRes}
           />
         </div>
-        <div className='resy-container'>
           <ResBox
             reservations={this.state.reservations}
           />
-        </div>
       </div>
     )
   }
