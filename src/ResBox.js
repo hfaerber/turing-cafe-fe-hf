@@ -3,7 +3,6 @@ import './ResBox.css'
 import ResCard from './ResCard'
 
 const ResBox = ({ reservations }) => {
-  // map over reservations and create a ResCard for each
   let cards = reservations.map(reservation => {
     return (<ResCard
       key={reservation.id}
@@ -16,7 +15,7 @@ const ResBox = ({ reservations }) => {
   })
 
   return(
-    <div>{cards}</div>
+    <div className='resy-container'>{cards}</div>
   )
 }
 

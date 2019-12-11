@@ -16,12 +16,8 @@ exports[`should match the snapshot 1`] = `
       addRes={[Function]}
     />
   </div>
-  <div
-    className="resy-container"
-  >
-    <ResBox
-      reservations={Array []}
-    />
-  </div>
+  <ResBox
+    reservations={Array []}
+  />
 </div>
 `;
